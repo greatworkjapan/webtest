@@ -1,0 +1,76 @@
+---
+const steps = [
+  { number: '1', title: '無料相談・ヒアリング', description: '母国語で丁寧にお話を伺います' },
+  { number: '2', title: 'ご提案・ご契約', description: '最適なプランをご提案します' },
+  { number: '3', title: 'デザイン制作・開発', description: 'オリジナルサイトを制作します' },
+  { number: '4', title: '公開＆サポート開始', description: '公開後も安心のサポート' }
+];
+
+const plans = [
+  {
+    name: 'スタートプラン',
+    price: '¥98,000',
+    features: ['5ページまで', 'レスポンシブデザイン', '基本SEO対策', 'お問い合わせフォーム', '3ヶ月サポート'],
+    featured: false
+  },
+  {
+    name: 'スタンダードプラン',
+    price: '¥198,000',
+    features: ['10ページまで', 'レスポンシブデザイン', 'SEO/MEO対策', '予約システム連携', 'SNS連携', '6ヶ月サポート'],
+    featured: true
+  },
+  {
+    name: 'プレミアムプラン',
+    price: '¥298,000',
+    features: ['無制限ページ', 'レスポンシブデザイン', '高度なSEO/MEO対策', '予約・決済システム', '多言語対応', '12ヶ月サポート'],
+    featured: false
+  }
+];
+---
+
+<section class="py-20 bg-gradient-to-b from-stone-50 to-white" id="pricing">
+  <div class="container mx-auto px-6">
+    <h2 class="text-4xl md:text-5xl font-black text-center mb-12 text-stone-900 font-jp">
+      ご相談から公開まで、シンプル＆スピーディ
+    </h2>
+    
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-20">
+      {steps.map((step) => (
+        <div class="text-center">
+          <div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center text-3xl font-black mx-auto mb-6 shadow-lg">
+            {step.number}
+          </div>
+          <h3 class="text-xl font-bold mb-3 text-stone-900">{step.title}</h3>
+          <p class="text-stone-700">{step.description}</p>
+        </div>
+      ))}
+    </div>
+    
+    <div class="text-center mb-12">
+      <h3 class="text-3xl font-bold text-stone-900 mb-4">中小・個人店様のための、透明な料金プラン</h3>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-12">
+      {plans.map((plan) => (
+        <div class={`bg-white p-10 rounded-2xl border-2 text-center hover:-translate-y-2 hover:shadow-2xl transition-all ${plan.featured ? 'border-primary bg-gradient-to-br from-primary/5 to-accent/5' : 'border-stone-200'}`}>
+          <h4 class="text-2xl font-bold mb-4 text-stone-900">{plan.name}</h4>
+          <div class="text-5xl font-black text-primary mb-6">{plan.price}</div>
+          <ul class="space-y-4 mb-8 text-left">
+            {plan.features.map((feature) => (
+              <li class="flex items-start gap-3 py-3 border-b border-stone-200 text-stone-700">
+                <span class="text-primary font-bold flex-shrink-0">✓</span>
+                <span>{feature}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+    
+    <div class="text-center">
+      <a href="#contact" class="btn bg-primary text-white px-10 py-4 rounded-lg text-lg font-semibold hover:bg-primary-light hover:-translate-y-1 hover:shadow-xl transition-all inline-block">
+        詳しい料金プランはこちら
+      </a>
+    </div>
+  </div>
+</section>

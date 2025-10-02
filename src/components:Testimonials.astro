@@ -1,0 +1,46 @@
+---
+const testimonials = [
+  {
+    text: 'タイ語で細かく要望を伝えられたので、理想通りのサロンの雰囲気が出せました。Webからの予約も増えて本当に嬉しいです！',
+    name: 'Niran様',
+    role: 'タイ式サロンオーナー',
+    flag: '🇹🇭'
+  },
+  {
+    text: 'この価格でここまでオリジナルなデザインを作ってくれるとは驚きです。WeChatからの問い合わせもできるようになり、中国人コミュニティにもアピールできています。',
+    name: 'Wang様',
+    role: '中華レストランオーナー',
+    flag: '🇨🇳'
+  }
+];
+---
+
+<section class="py-20 bg-white" id="testimonials">
+  <div class="container mx-auto px-6">
+    <h2 class="text-4xl md:text-5xl font-black text-center mb-12 text-stone-900 font-jp">
+      喜びの声が、私たちの誇りです
+    </h2>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+      {testimonials.map((testimonial) => (
+        <div class="bg-stone-50 p-10 rounded-2xl border-l-4 border-accent relative">
+          <div class="absolute top-4 left-6 text-7xl text-accent opacity-30 font-serif">"</div>
+          <div class="relative z-10">
+            <p class="text-lg leading-relaxed text-stone-700 mb-6">
+              {testimonial.text}
+            </p>
+            <div class="flex items-center gap-4">
+              <div class="w-14 h-14 rounded-full bg-primary flex items-center justify-center text-2xl">
+                {testimonial.flag}
+              </div>
+              <div>
+                <h4 class="font-bold text-stone-900">{testimonial.name}</h4>
+                <p class="text-sm text-stone-700">{testimonial.role}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

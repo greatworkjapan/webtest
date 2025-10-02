@@ -1,0 +1,27 @@
+---
+const problems = [
+  { icon: '🗣️', title: '言葉の壁', description: '日本の制作会社との日本語でのやりとりに不安がある…' },
+  { icon: '📈', title: '集客の悩み', description: 'お店の魅力が伝わらず、新しいお客さんが増えない…' },
+  { icon: '🎨', title: 'デザインの不満', description: 'テンプレートのデザインは嫌だ。自分のお店らしさを表現したい…' },
+  { icon: '💰', title: '高額な費用', description: '本格的なサイトは制作費が高くて手が出せない…' },
+  { icon: '❓', title: '知識不足', description: 'Webの専門知識がなく、何から始めればいいか分からない…' },
+];
+---
+
+<section class="py-20 bg-white" id="problems">
+  <div class="container mx-auto px-6">
+    <h2 class="text-4xl md:text-5xl font-black text-center mb-12 text-stone-900 font-jp">
+      Webサイトで、こんなお悩みありませんか？
+    </h2>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+      {problems.map((problem) => (
+        <div class="bg-stone-50 p-8 rounded-xl border-2 border-stone-200 hover:border-accent hover:-translate-y-1 hover:shadow-lg transition-all">
+          <div class="text-5xl mb-4">{problem.icon}</div>
+          <h3 class="text-xl font-bold mb-3 text-stone-900">{problem.title}</h3>
+          <p class="text-stone-700 leading-relaxed">{problem.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

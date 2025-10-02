@@ -1,0 +1,42 @@
+---
+const faqs = [
+  {
+    question: '本当に追加料金はかかりませんか？',
+    answer: 'はい、プラン内容に含まれる範囲であれば追加料金は一切かかりません。事前にお見積もりを提示し、ご納得いただいてから制作を開始します。'
+  },
+  {
+    question: '制作期間はどのくらいですか？',
+    answer: 'プランによって異なりますが、スタートプランで約3週間、スタンダードプランで約5週間、プレミアムプランで約8週間が目安です。'
+  },
+  {
+    question: 'パソコンが苦手でも更新できますか？',
+    answer: 'はい、簡単に更新できるシステムを導入し、母国語での操作マニュアルもご用意します。公開後のサポートも充実していますのでご安心ください。'
+  },
+  {
+    question: 'サイト公開後のサポートはありますか？',
+    answer: 'はい、すべてのプランにサポート期間が含まれています。技術的な質問から運用のアドバイスまで、母国語で丁寧にサポートいたします。'
+  }
+];
+---
+
+<section class="py-20 bg-white" id="faq">
+  <div class="container mx-auto px-6">
+    <h2 class="text-4xl md:text-5xl font-black text-center mb-12 text-stone-900 font-jp">
+      よくあるご質問
+    </h2>
+    
+    <div class="max-w-4xl mx-auto space-y-4">
+      {faqs.map((faq, index) => (
+        <div class="collapse collapse-plus bg-stone-50 border border-stone-200 rounded-xl">
+          <input type="radio" name="faq-accordion" id={`faq-${index}`} />
+          <div class="collapse-title text-lg font-bold text-stone-900">
+            {faq.question}
+          </div>
+          <div class="collapse-content text-stone-700 leading-relaxed">
+            <p>{faq.answer}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
