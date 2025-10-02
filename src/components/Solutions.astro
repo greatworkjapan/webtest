@@ -4,25 +4,25 @@ const solutions = [
     number: '1',
     title: '低価格でも、完全オリジナルデザイン',
     description: '私たちは中小・個人店に特化することで、無駄なコストを徹底的に削減。低価格でも、一店舗一店舗のコンセプトやストーリーを丁寧にヒアリングし、あなたのビジネスだけのオリジナルサイトを制作します。',
-    icon: '🎨'
+    image: 'https://images.unsplash.com/photo-1600565193348-f74d3c2723a4?q=80&w=2070&auto=format&fit=crop'
   },
   {
     number: '2',
     title: '日本人による「日本市場向け」ローカライズ',
     description: '日本の市場や文化、トレンドを熟知した日本人デザイナーとマーケターが担当。あなたの母国の魅力と、日本人の感性を融合させ、最も効果的な見せ方を提案します。',
-    icon: '🇯🇵'
+    image: 'https://images.unsplash.com/photo-1540959733332-eab4de25247d?q=80&w=2070&auto=format&fit=crop'
   },
   {
     number: '3',
     title: '作って終わりじゃない「集客強化」',
     description: 'Webサイトは開店してからの集客が本番です。Googleマップでお店を見つけてもらうためのMEO対策や、検索で見つけてもらうためのSEO対策を標準装備。あなたのお店に興味があるお客様を呼び込みます。',
-    icon: '📊'
+    image: 'https://images.unsplash.com/photo-1543286386-713bdd548da4?q=80&w=2070&auto=format&fit=crop'
   },
   {
     number: '4',
     title: '安心の「母国語」フルサポート',
     description: '最初のヒアリングから、デザインの確認、公開後の操作説明まで、すべてあなたの母国語(中国語・英語・タイ語)で対応します。細かいニュアンスまで、安心してご相談ください。',
-    icon: '🌏'
+    image: 'https://images.unsplash.com/photo-1516321497487-e288fb19713f?q=80&w=2070&auto=format&fit=crop'
   }
 ];
 ---
@@ -35,14 +35,16 @@ const solutions = [
     
     <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
       {solutions.map((solution) => (
-        <div class="bg-white p-10 rounded-2xl shadow-md border border-stone-200 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/10 transition-all">
-          <div class="inline-flex items-center justify-center w-12 h-12 bg-primary text-white rounded-xl text-2xl font-black mb-6">
-            {solution.number}
+        <div class="bg-white rounded-2xl shadow-md border border-stone-200 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-300 transform flex flex-col">
+          <div class="p-10">
+            <div class="inline-flex items-center justify-center w-12 h-12 bg-primary text-white rounded-xl text-2xl font-black mb-6">
+              {solution.number}
+            </div>
+            <h3 class="text-2xl font-bold mb-4 text-stone-900">{solution.title}</h3>
+            <p class="text-stone-700 leading-relaxed mb-6">{solution.description}</p>
           </div>
-          <h3 class="text-2xl font-bold mb-4 text-stone-900">{solution.title}</h3>
-          <p class="text-stone-700 leading-relaxed mb-6">{solution.description}</p>
-          <div class="w-full h-48 bg-stone-100 rounded-xl flex items-center justify-center text-6xl">
-            {solution.icon}
+          <div class="w-full h-48 bg-stone-100 rounded-b-xl mt-auto overflow-hidden">
+             <img src={solution.image} alt={solution.title} class="w-full h-full object-cover" />
           </div>
         </div>
       ))}
