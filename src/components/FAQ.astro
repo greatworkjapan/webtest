@@ -27,10 +27,11 @@ const faqs = [
     
     <div class="max-w-4xl mx-auto space-y-4">
       {faqs.map((faq, index) => (
-        <div class="collapse collapse-plus bg-stone-50 border border-stone-200 rounded-xl">
+        <div class="collapse collapse-plus bg-stone-50 border border-stone-200 rounded-xl group">
           <input type="radio" name="faq-accordion" id={`faq-${index}`} />
-          <div class="collapse-title text-lg font-bold text-stone-900">
+          <div class="collapse-title text-lg font-bold text-stone-900 flex justify-between items-center cursor-pointer">
             {faq.question}
+            <span class="transition-transform duration-300 group-focus-within:rotate-45">+</span>
           </div>
           <div class="collapse-content text-stone-700 leading-relaxed">
             <p>{faq.answer}</p>
