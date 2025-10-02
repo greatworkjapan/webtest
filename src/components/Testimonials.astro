@@ -4,36 +4,271 @@ const testimonials = [
     text: 'タイ語で細かく要望を伝えられたので、理想通りのサロンの雰囲気が出せました。Webからの予約も増えて本当に嬉しいです！',
     name: 'Niran様',
     role: 'タイ式サロンオーナー',
-    image: 'https://images.unsplash.com/photo-1552695273-388c3b7a2179?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80'
+    business: 'Sabai Spa',
+    rating: 5,
+    image: 'https://images.unsplash.com/photo-1552695273-388c3b7a2179?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
+    results: ['Web予約 +150%', '新規顧客 +200%', '売上 +120%']
   },
   {
     text: 'この価格でここまでオリジナルなデザインを作ってくれるとは驚きです。WeChatからの問い合わせもできるようになり、中国人コミュニティにもアピールできています。',
     name: 'Wang様',
     role: '中華レストランオーナー',
-    image: 'https://images.unsplash.com/photo-1579782833346-a7ce222a7cd4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80'
+    business: '龍的厨房',
+    rating: 5,
+    image: 'https://images.unsplash.com/photo-1579782833346-a7ce222a7cd4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
+    results: ['予約数 +150%', 'WeChat問合せ +300%', '認知度 +250%']
+  },
+  {
+    text: 'デザインが本当に美しくて、お客様からも「おしゃれなサイトですね」と褒められます。予約システムも使いやすく、業務効率が格段に上がりました。',
+    name: 'Linh様',
+    role: 'ベトナムカフェオーナー',
+    business: 'Pho & Coffee',
+    rating: 5,
+    image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
+    results: ['リピート率 +40%', '滞在時間 +60%', '注文単価 +25%']
+  },
+  {
+    text: '多言語対応のおかげで外国人のお客様が大幅に増えました。特に英語と中国語のページは大好評で、売上が2倍になりました！',
+    name: 'Raj様',
+    role: 'インド料理レストランオーナー',
+    business: 'Spice Garden',
+    rating: 5,
+    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
+    results: ['外国人客 +250%', '売上 +200%', '口コミ +180%']
+  },
+  {
+    text: 'Instagram頼みだった集客から脱却できました。オンライン予約システムのおかげで、24時間いつでも予約を受け付けられるようになり、売上が大幅にアップしました。',
+    name: 'Yuki様',
+    role: 'ネイルサロンオーナー',
+    business: 'Nail Art Tokyo',
+    rating: 5,
+    image: 'https://images.unsplash.com/photo-1494790108755-2616c0763c5c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80',
+    results: ['予約効率 +300%', '顧客満足度 +95%', '月間売上 +180%']
   }
 ];
 ---
 
-<section class="py-20 bg-stone-100" id="testimonials">
-  <div class="container mx-auto px-6">
-    <h2 class="text-4xl md:text-5xl font-black text-center mb-16 text-stone-900 font-jp">
-      喜びの声が、私たちの誇りです
-    </h2>
-    
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl mx-auto">
-      {testimonials.map((testimonial) => (
-        <div class="bg-white p-10 rounded-2xl shadow-2xl relative text-center">
-          <img src={testimonial.image} alt={testimonial.name} class="w-24 h-24 rounded-full mx-auto -mt-20 mb-6 border-4 border-white shadow-lg">
-          <p class="text-lg leading-relaxed text-stone-700 mb-8 italic">
-            "{testimonial.text}"
-          </p>
-          <div>
-            <h4 class="font-bold text-xl text-stone-900">{testimonial.name}</h4>
-            <p class="text-md text-stone-600">{testimonial.role}</p>
+<section class="py-20 bg-gradient-to-br from-background-muted to-white relative overflow-hidden" id="testimonials">
+  <!-- Background Elements -->
+  <div class="absolute inset-0">
+    <div class="absolute top-20 right-10 w-32 h-32 bg-accent/5 rounded-full animate-float"></div>
+    <div class="absolute bottom-20 left-10 w-24 h-24 bg-accent-warm/5 rounded-lg rotate-45 animate-pulse-slow"></div>
+  </div>
+
+  <div class="container mx-auto px-6 relative z-10">
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-6xl font-display font-black mb-6 text-primary animate-fade-in-down">
+        <span class="bg-gradient-to-r from-accent to-accent-warm bg-clip-text text-transparent">喜びの声</span>が、<br class="md:hidden">私たちの誇りです
+      </h2>
+      <p class="text-xl text-text-muted max-w-3xl mx-auto animate-fade-in-up">
+        実際にサービスをご利用いただいたお客様からの生の声をお聞きください
+      </p>
+    </div>
+
+    <!-- Testimonials Carousel -->
+    <div class="relative max-w-6xl mx-auto">
+      <!-- Desktop View (2 columns) -->
+      <div class="hidden md:block">
+        <div id="testimonials-desktop" class="grid grid-cols-2 gap-8 transition-all duration-500">
+          {testimonials.slice(0, 4).map((testimonial, index) => (
+            <div class="testimonial-card bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 relative overflow-hidden animate-fade-in-up" style={`animation-delay: ${index * 0.2}s`}>
+              <!-- Background Gradient -->
+              <div class="absolute inset-0 bg-gradient-to-br from-accent/5 to-accent-warm/5 opacity-0 hover:opacity-100 transition-opacity duration-500"></div>
+              
+              <!-- Content -->
+              <div class="relative z-10">
+                <!-- Profile -->
+                <div class="flex items-center mb-6">
+                  <img src={testimonial.image} alt={testimonial.name} class="w-16 h-16 rounded-full object-cover border-4 border-accent/20 mr-4">
+                  <div>
+                    <h4 class="font-bold text-lg text-primary">{testimonial.name}</h4>
+                    <p class="text-text-muted text-sm">{testimonial.role}</p>
+                    <p class="text-accent text-sm font-semibold">{testimonial.business}</p>
+                  </div>
+                </div>
+
+                <!-- Rating -->
+                <div class="flex mb-4">
+                  {Array.from({ length: testimonial.rating }, (_, i) => (
+                    <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                      <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                    </svg>
+                  ))}
+                </div>
+
+                <!-- Testimonial Text -->
+                <blockquote class="text-text-DEFAULT leading-relaxed mb-6 italic text-lg">
+                  "{testimonial.text}"
+                </blockquote>
+
+                <!-- Results -->
+                <div class="grid grid-cols-3 gap-2">
+                  {testimonial.results.map((result) => (
+                    <div class="text-center p-2 bg-accent/10 rounded-lg">
+                      <div class="text-accent font-bold text-sm">{result}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Mobile View (Carousel) -->
+      <div class="md:hidden">
+        <div id="testimonials-mobile" class="relative">
+          <div class="overflow-hidden">
+            <div id="testimonials-track" class="flex transition-transform duration-500 ease-in-out">
+              {testimonials.map((testimonial, index) => (
+                <div class="w-full flex-shrink-0 px-4">
+                  <div class="testimonial-card bg-white rounded-3xl p-6 shadow-lg relative overflow-hidden">
+                    <!-- Background Gradient -->
+                    <div class="absolute inset-0 bg-gradient-to-br from-accent/5 to-accent-warm/5"></div>
+                    
+                    <!-- Content -->
+                    <div class="relative z-10">
+                      <!-- Profile -->
+                      <div class="flex items-center mb-6">
+                        <img src={testimonial.image} alt={testimonial.name} class="w-16 h-16 rounded-full object-cover border-4 border-accent/20 mr-4">
+                        <div>
+                          <h4 class="font-bold text-lg text-primary">{testimonial.name}</h4>
+                          <p class="text-text-muted text-sm">{testimonial.role}</p>
+                          <p class="text-accent text-sm font-semibold">{testimonial.business}</p>
+                        </div>
+                      </div>
+
+                      <!-- Rating -->
+                      <div class="flex mb-4">
+                        {Array.from({ length: testimonial.rating }, (_, i) => (
+                          <svg class="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                            <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                          </svg>
+                        ))}
+                      </div>
+
+                      <!-- Testimonial Text -->
+                      <blockquote class="text-text-DEFAULT leading-relaxed mb-6 italic">
+                        "{testimonial.text}"
+                      </blockquote>
+
+                      <!-- Results -->
+                      <div class="grid grid-cols-3 gap-2">
+                        {testimonial.results.map((result) => (
+                          <div class="text-center p-2 bg-accent/10 rounded-lg">
+                            <div class="text-accent font-bold text-xs">{result}</div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <!-- Navigation Buttons -->
+          <button id="testimonials-prev" class="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-4 w-12 h-12 bg-accent/80 hover:bg-accent text-white rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+          </button>
+          <button id="testimonials-next" class="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-4 w-12 h-12 bg-accent/80 hover:bg-accent text-white rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </button>
+
+          <!-- Dots Indicator -->
+          <div class="flex justify-center mt-8 space-x-2">
+            {testimonials.map((_, index) => (
+              <button class={`testimonial-dot w-3 h-3 rounded-full transition-all duration-300 ${index === 0 ? 'bg-accent' : 'bg-gray-300'}`} data-index={index}></button>
+            ))}
           </div>
         </div>
-      ))}
+      </div>
+    </div>
+
+    <!-- Bottom CTA -->
+    <div class="text-center mt-16 animate-fade-in-up">
+      <p class="text-lg text-text-muted mb-6">
+        あなたも同じような成功体験を手に入れませんか？
+      </p>
+      <a href="#contact" 
+         class="inline-block px-12 py-4 bg-gradient-to-r from-accent to-accent-warm text-white font-bold text-lg rounded-2xl 
+                hover:shadow-neon hover:scale-105 transition-all duration-300 transform">
+        無料相談を始める
+      </a>
     </div>
   </div>
 </section>
+
+<script>
+  // Mobile Testimonials Carousel
+  let currentTestimonial = 0;
+  const totalTestimonials = document.querySelectorAll('#testimonials-track > div').length;
+  const testimonialsTrack = document.getElementById('testimonials-track');
+  const testimonialDots = document.querySelectorAll('.testimonial-dot');
+  const testimonialsPrev = document.getElementById('testimonials-prev');
+  const testimonialsNext = document.getElementById('testimonials-next');
+
+  function updateTestimonialsCarousel() {
+    if (testimonialsTrack) {
+      testimonialsTrack.style.transform = `translateX(-${currentTestimonial * 100}%)`;
+    }
+    
+    // Update dots
+    testimonialDots.forEach((dot, index) => {
+      dot.classList.toggle('bg-accent', index === currentTestimonial);
+      dot.classList.toggle('bg-gray-300', index !== currentTestimonial);
+    });
+  }
+
+  function nextTestimonial() {
+    currentTestimonial = currentTestimonial >= totalTestimonials - 1 ? 0 : currentTestimonial + 1;
+    updateTestimonialsCarousel();
+  }
+
+  function prevTestimonial() {
+    currentTestimonial = currentTestimonial <= 0 ? totalTestimonials - 1 : currentTestimonial - 1;
+    updateTestimonialsCarousel();
+  }
+
+  // Event Listeners
+  if (testimonialsNext) testimonialsNext.addEventListener('click', nextTestimonial);
+  if (testimonialsPrev) testimonialsPrev.addEventListener('click', prevTestimonial);
+
+  testimonialDots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+      currentTestimonial = index;
+      updateTestimonialsCarousel();
+    });
+  });
+
+  // Auto-play for testimonials
+  setInterval(nextTestimonial, 6000);
+
+  // Touch/Swipe support for testimonials
+  let testimonialStartX = 0;
+  let testimonialEndX = 0;
+
+  if (testimonialsTrack) {
+    testimonialsTrack.addEventListener('touchstart', (e) => {
+      testimonialStartX = e.touches[0].clientX;
+    });
+
+    testimonialsTrack.addEventListener('touchend', (e) => {
+      testimonialEndX = e.changedTouches[0].clientX;
+      const diff = testimonialStartX - testimonialEndX;
+      
+      if (Math.abs(diff) > 50) {
+        if (diff > 0) {
+          nextTestimonial();
+        } else {
+          prevTestimonial();
+        }
+      }
+    });
+  }
+</script>
