@@ -5,12 +5,14 @@ export default {
     extend: {
       colors: {
         primary: {
-          DEFAULT: '#2D5A4A',
-          light: '#3D7A5F',
+          // 深みのあるネイビーに変更
+          DEFAULT: '#1d3557', 
+          light: '#457b9d',
         },
         accent: {
-          DEFAULT: '#E8A87C',
-          warm: '#D4915A',
+          // 上品なゴールドに変更
+          DEFAULT: '#d4a373',
+          warm: '#a67c52',
         },
       },
       fontFamily: {
