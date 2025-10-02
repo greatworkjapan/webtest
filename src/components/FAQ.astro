@@ -21,20 +21,19 @@ const faqs = [
 
 <section class="py-20 bg-white" id="faq">
   <div class="container mx-auto px-6">
-    <h2 class="text-4xl md:text-5xl font-black text-center mb-12 text-stone-900 font-jp">
+    <h2 class="text-4xl md:text-5xl font-black text-center mb-16 text-stone-900 font-jp">
       よくあるご質問
     </h2>
     
-    <div class="max-w-4xl mx-auto space-y-4">
+    <div class="max-w-4xl mx-auto space-y-6">
       {faqs.map((faq, index) => (
-        <div class="collapse collapse-plus bg-stone-50 border border-stone-200 rounded-xl group">
+        <div class="collapse collapse-plus bg-stone-50 border-l-4 border-primary rounded-xl shadow-md">
           <input type="radio" name="faq-accordion" id={`faq-${index}`} />
-          <div class="collapse-title text-lg font-bold text-stone-900 flex justify-between items-center cursor-pointer">
+          <div class="collapse-title text-xl font-bold text-stone-900">
             {faq.question}
-            <span class="transition-transform duration-300 group-focus-within:rotate-45">+</span>
           </div>
-          <div class="collapse-content text-stone-700 leading-relaxed">
-            <p>{faq.answer}</p>
+          <div class="collapse-content text-stone-700 leading-relaxed text-lg bg-white">
+            <p class="pt-4">{faq.answer}</p>
           </div>
         </div>
       ))}
