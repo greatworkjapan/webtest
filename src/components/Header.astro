@@ -1,31 +1,132 @@
 ---
 ---
 
-<header class="bg-white/95 backdrop-blur-md sticky top-0 z-50 border-b border-stone-200 shadow-md">
+<header class="bg-white/90 backdrop-blur-md sticky top-0 z-50 border-b border-gray-200/50 shadow-lg">
   <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-    <div class="text-3xl font-black text-primary font-jp">Omiseweb</div>
-    <ul class="hidden md:flex gap-10 items-center">
-      <li><a href="#solutions" class="text-lg text-stone-700 font-medium hover:text-primary transition-colors">サービス</a></li>
-      <li><a href="#cases" class="text-lg text-stone-700 font-medium hover:text-primary transition-colors">制作事例</a></li>
-      <li><a href="#pricing" class="text-lg text-stone-700 font-medium hover:text-primary transition-colors">料金</a></li>
-      <li><a href="#faq" class="text-lg text-stone-700 font-medium hover:text-primary transition-colors">よくある質問</a></li>
-      <li><a href="#contact" class="btn bg-primary text-white px-8 py-3 rounded-xl font-semibold hover:bg-primary-light hover:-translate-y-0.5 hover:shadow-lg transition-all text-lg">無料相談</a></li>
+    <!-- Logo -->
+    <div class="flex items-center space-x-3">
+      <div class="w-10 h-10 bg-gradient-to-br from-accent to-accent-warm rounded-xl flex items-center justify-center">
+        <span class="text-white font-black text-xl">O</span>
+      </div>
+      <div class="text-2xl md:text-3xl font-display font-black text-primary">
+        Omiseweb
+      </div>
+    </div>
+
+    <!-- Desktop Navigation -->
+    <ul class="hidden lg:flex gap-8 items-center">
+      <li>
+        <a href="#solutions" 
+           class="text-lg text-text-muted font-medium hover:text-primary transition-all duration-300 
+                  relative group">
+          サービス
+          <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300"></span>
+        </a>
+      </li>
+      <li>
+        <a href="#cases" 
+           class="text-lg text-text-muted font-medium hover:text-primary transition-all duration-300 
+                  relative group">
+          制作事例
+          <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300"></span>
+        </a>
+      </li>
+      <li>
+        <a href="#pricing" 
+           class="text-lg text-text-muted font-medium hover:text-primary transition-all duration-300 
+                  relative group">
+          料金
+          <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300"></span>
+        </a>
+      </li>
+      <li>
+        <a href="#faq" 
+           class="text-lg text-text-muted font-medium hover:text-primary transition-all duration-300 
+                  relative group">
+          よくある質問
+          <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300"></span>
+        </a>
+      </li>
+      <li>
+        <a href="#contact" 
+           class="group relative px-8 py-3 bg-gradient-to-r from-accent to-accent-warm text-white font-bold rounded-xl 
+                  hover:shadow-neon hover:scale-105 transition-all duration-300 transform text-lg
+                  before:absolute before:inset-0 before:bg-gradient-to-r before:from-accent-warm before:to-accent 
+                  before:rounded-xl before:opacity-0 hover:before:opacity-100 before:transition-opacity before:duration-300">
+          <span class="relative z-10">無料相談</span>
+        </a>
+      </li>
     </ul>
+
+    <!-- Mobile Menu Button -->
+    <button id="mobile-menu-button" class="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors">
+      <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
   </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="lg:hidden hidden bg-white/95 backdrop-blur-md border-t border-gray-200/50">
+    <div class="container mx-auto px-6 py-4 space-y-4">
+      <a href="#solutions" 
+         class="block text-lg text-text-muted font-medium hover:text-primary transition-colors py-2">
+        サービス
+      </a>
+      <a href="#cases" 
+         class="block text-lg text-text-muted font-medium hover:text-primary transition-colors py-2">
+        制作事例
+      </a>
+      <a href="#pricing" 
+         class="block text-lg text-text-muted font-medium hover:text-primary transition-colors py-2">
+        料金
+      </a>
+      <a href="#faq" 
+         class="block text-lg text-text-muted font-medium hover:text-primary transition-colors py-2">
+        よくある質問
+      </a>
+      <a href="#contact" 
+         class="block w-full text-center px-8 py-3 bg-gradient-to-r from-accent to-accent-warm text-white font-bold rounded-xl 
+                hover:shadow-neon transition-all duration-300 text-lg mt-4">
+        無料相談
+      </a>
+    </div>
+  </div>
 </header>
+
 <script>
+  // Smooth scrolling for anchor links
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
       e.preventDefault();
-const href = (e.currentTarget as HTMLAnchorElement).getAttribute('href');
+      const href = (e.currentTarget as HTMLAnchorElement).getAttribute('href');
       if (href) {
         const target = document.querySelector(href);
-if (target) {
+        if (target) {
           target.scrollIntoView({
             behavior: 'smooth',
             block: 'start'
           });
-}
+        }
+      }
+    });
+  });
+
+  // Mobile menu toggle
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+  
+  if (mobileMenuButton && mobileMenu) {
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  }
+
+  // Close mobile menu when clicking on a link
+  document.querySelectorAll('#mobile-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      if (mobileMenu) {
+        mobileMenu.classList.add('hidden');
       }
     });
   });
