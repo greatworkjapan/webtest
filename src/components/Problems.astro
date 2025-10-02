@@ -1,30 +1,74 @@
 ---
 const problems = [
-  { icon: '🗣️', title: '言葉の壁', description: '日本の制作会社との日本語でのやりとりに不安がある…', image: 'https://images.unsplash.com/photo-1534536281715-e28d76689b4d?q=80&w=2070&auto=format&fit=crop' },
-  { icon: '📈', title: '集客の悩み', description: 'お店の魅力が伝わらず、新しいお客さんが増えない…', image: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=1974&auto=format&fit=crop' },
-  { icon: '🎨', title: 'デザインの不満', description: 'テンプレートのデザインは嫌だ。自分のお店らしさを表現したい…', image: 'https://images.unsplash.com/photo-1522199755839-a2bacb67c546?q=80&w=2072&auto=format&fit=crop' },
-  { icon: '💰', title: '高額な費用', description: '本格的なサイトは制作費が高くて手が出せない…', image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=2070&auto=format&fit=crop' },
-  { icon: '❓', title: '知識不足', description: 'Webの専門知識がなく、何から始めればいいか分からない…', image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070&auto=format&fit=crop' },
+  { icon: '🗣️', title: '言葉の壁', description: '日本の制作会社との日本語でのやりとりに不安がある…', gradient: 'from-blue-500/10 to-cyan-500/10' },
+  { icon: '📈', title: '集客の悩み', description: 'お店の魅力が伝わらず、新しいお客さんが増えない…', gradient: 'from-purple-500/10 to-pink-500/10' },
+  { icon: '🎨', title: 'デザインの不満', description: 'テンプレートのデザインは嫌だ。自分のお店らしさを表現したい…', gradient: 'from-orange-500/10 to-red-500/10' },
+  { icon: '💰', title: '高額な費用', description: '本格的なサイトは制作費が高くて手が出せない…', gradient: 'from-green-500/10 to-emerald-500/10' },
+  { icon: '❓', title: '知識不足', description: 'Webの専門知識がなく、何から始めればいいか分からない…', gradient: 'from-yellow-500/10 to-amber-500/10' },
 ];
 ---
 
-<section class="py-20 bg-white" id="problems">
+<section class="py-32 bg-gradient-to-b from-white to-stone-50 overflow-hidden" id="problems">
   <div class="container mx-auto px-6">
-    <h2 class="text-4xl md:text-5xl font-black text-center mb-12 text-stone-900 font-jp">
-      Webサイトで、こんなお悩みありませんか？
-    </h2>
+    <div class="text-center max-w-4xl mx-auto mb-20">
+      <span class="inline-block text-sm font-bold text-primary bg-primary/10 px-4 py-2 rounded-full mb-6 uppercase tracking-wider">
+        Problems
+      </span>
+      <h2 class="text-5xl md:text-6xl font-black mb-6 text-stone-900 font-jp leading-tight">
+        Webサイトで、<br class="md:hidden">こんなお悩みありませんか？
+      </h2>
+      <p class="text-xl text-stone-600">
+        多くのオーナー様が抱える課題を、私たちが解決します
+      </p>
+    </div>
     
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
-      {problems.map((problem) => (
-        <div class="relative bg-stone-50 p-8 rounded-xl border-2 border-stone-200 hover:border-primary hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 transform overflow-hidden group">
-          <img src={problem.image} alt={problem.title} class="absolute inset-0 w-full h-full object-cover opacity-10 group-hover:opacity-20 transition-opacity duration-300" />
+    <!-- Desktop: Grid layout -->
+    <div class="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+      {problems.map((problem, index) => (
+        <div class={`group relative bg-gradient-to-br ${problem.gradient} backdrop-blur-sm rounded-3xl p-8 border-2 border-stone-200 hover:border-primary/30 hover:-translate-y-2 hover:shadow-2xl transition-all duration-300`}>
+          <div class="absolute top-4 right-4 text-6xl opacity-10 group-hover:opacity-20 transition-opacity">
+            {problem.icon}
+          </div>
           <div class="relative z-10">
-            <div class="text-5xl mb-4">{problem.icon}</div>
-            <h3 class="text-xl font-bold mb-3 text-stone-900">{problem.title}</h3>
+            <div class="w-16 h-16 bg-white rounded-2xl shadow-lg flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform">
+              {problem.icon}
+            </div>
+            <h3 class="text-2xl font-bold mb-4 text-stone-900">{problem.title}</h3>
             <p class="text-stone-700 leading-relaxed">{problem.description}</p>
           </div>
+          <div class="absolute inset-0 bg-gradient-to-br from-primary/0 to-primary/5 opacity-0 group-hover:opacity-100 rounded-3xl transition-opacity"></div>
         </div>
       ))}
     </div>
+    
+    <!-- Mobile: Carousel -->
+    <div class="md:hidden relative">
+      <div class="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-8 px-6 -mx-6 scrollbar-hide">
+        {problems.map((problem) => (
+          <div class={`flex-none w-[85vw] snap-center bg-gradient-to-br ${problem.gradient} rounded-3xl p-8 border-2 border-stone-200 shadow-lg`}>
+            <div class="relative">
+              <div class="w-16 h-16 bg-white rounded-2xl shadow-lg flex items-center justify-center text-3xl mb-6">
+                {problem.icon}
+              </div>
+              <h3 class="text-2xl font-bold mb-4 text-stone-900">{problem.title}</h3>
+              <p class="text-stone-700 leading-relaxed">{problem.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div class="text-center mt-4 text-sm text-stone-500">
+        ← スワイプして他の課題を見る →
+      </div>
+    </div>
   </div>
 </section>
+
+<style>
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+</style>
