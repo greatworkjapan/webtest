@@ -1,9 +1,9 @@
 ---
 const steps = [
-  { number: '1', title: '無料相談・ヒアリング', description: '母国語で丁寧にお話を伺います' },
-  { number: '2', title: 'ご提案・ご契約', description: '最適なプランをご提案します' },
-  { number: '3', title: 'デザイン制作・開発', description: 'オリジナルサイトを制作します' },
-  { number: '4', title: '公開＆サポート開始', description: '公開後も安心のサポート' }
+  { number: '1', title: '無料相談・ヒアリング', description: '母国語で丁寧にお話を伺います', icon: '💬' },
+  { number: '2', title: 'ご提案・ご契約', description: '最適なプランをご提案します', icon: '📝' },
+  { number: '3', title: 'デザイン制作・開発', description: 'オリジナルサイトを制作します', icon: '💻' },
+  { number: '4', title: '公開＆サポート開始', description: '公開後も安心のサポート', icon: '🚀' }
 ];
 const plans = [
   {
@@ -29,55 +29,54 @@ const plans = [
 
 <section class="py-20 bg-gradient-to-b from-stone-50 to-white" id="pricing">
   <div class="container mx-auto px-6">
-    <h2 class="text-4xl md:text-5xl font-black text-center mb-20 text-stone-900 font-jp">
+    <h2 class="text-4xl md:text-5xl font-black text-center mb-16 text-stone-900 font-jp">
       ご相談から公開まで、シンプル＆スピーディ
     </h2>
-    
-    <div class="relative max-w-4xl mx-auto mb-24">
-      <div class="absolute left-1/2 top-8 bottom-8 w-1 bg-primary/20 rounded-full hidden md:block"></div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12">
-        {steps.map((step, index) => (
-          <div class={`flex items-start gap-6 ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
-            <div class="relative z-10">
-              <div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center text-3xl font-black shadow-lg">
-                {step.number}
-              </div>
-            </div>
-            <div class={`text-left ${index % 2 === 0 ? 'md:text-left' : 'md:text-right'}`}>
+
+    <div class="relative max-w-5xl mx-auto mb-20">
+      <div class="absolute left-1/2 top-8 w-1 h-full bg-gray-300 -translate-x-1/2"></div>
+      {steps.map((step, index) => (
+        <div class={`flex items-center mb-16 ${index % 2 === 0 ? 'justify-start' : 'justify-end'}`}>
+          <div class={`w-1/2 ${index % 2 === 0 ? 'pr-8' : 'pl-8 text-right'}`}>
+            <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
               <h3 class="text-xl font-bold mb-2 text-stone-900">{step.title}</h3>
               <p class="text-stone-700">{step.description}</p>
             </div>
           </div>
-        ))}
-      </div>
+          <div class="absolute left-1/2 -translate-x-1/2">
+            <div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center text-3xl font-black shadow-lg">
+              {step.number}
+            </div>
+          </div>
+        </div>
+      ))}
     </div>
-    
+
     <div class="text-center mb-12">
       <h3 class="text-3xl font-bold text-stone-900 mb-4">中小・個人店様のための、透明な料金プラン</h3>
     </div>
-    
+
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-12">
       {plans.map((plan) => (
-        <div class={`relative bg-white p-8 rounded-2xl border-2 text-center transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl ${plan.featured ? 'border-primary shadow-xl' : 'border-stone-200'}`}>
-          {plan.featured && (
-            <div class="absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2 bg-primary text-white text-xs font-bold px-4 py-1 rounded-full uppercase">一番人気</div>
-          )}
+        <div class={`bg-white p-10 rounded-2xl border-2 text-center hover:-translate-y-2 hover:shadow-2xl transition-all ${plan.featured ? 'border-primary' : 'border-stone-200'}`}>
           <h4 class="text-2xl font-bold mb-4 text-stone-900">{plan.name}</h4>
           <div class="text-5xl font-black text-primary mb-6">{plan.price}</div>
-          <ul class="space-y-3 mb-8 text-left">
+          <ul class="space-y-4 mb-8 text-left">
             {plan.features.map((feature) => (
-              <li class="flex items-start gap-3 text-stone-700">
-                <span class="text-primary font-bold flex-shrink-0 mt-1">✓</span>
+              <li class="flex items-start gap-3 py-3 border-b border-stone-200 text-stone-700">
+                <span class="text-primary font-bold flex-shrink-0">✓</span>
                 <span>{feature}</span>
               </li>
             ))}
           </ul>
-          <a href="#contact" class={`w-full mt-auto btn ${plan.featured ? 'bg-primary text-white' : 'bg-stone-200 text-stone-800'} rounded-lg text-lg font-semibold hover:opacity-90 transition-opacity`}>
-            このプランで相談
-          </a>
         </div>
       ))}
     </div>
-    
+
+    <div class="text-center">
+      <a href="#contact" class="btn bg-primary text-white px-10 py-4 rounded-lg text-lg font-semibold hover:bg-primary-light hover:-translate-y-1 hover:shadow-xl transition-all inline-block">
+        詳しい料金プランはこちら
+      </a>
+    </div>
   </div>
 </section>
