@@ -2,62 +2,74 @@
 const cases = [
   {
     name: '中華レストラン「龍的厨房」様',
-    // TODO: 実際の画像に差し替える
-    image: 'https://images.unsplash.com/photo-1585032226651-759b368d7246?q=80&w=1892&auto=format&fit=crop',
     before: '古いサイトで魅力が伝わらず、予約も電話のみだった。',
-    after: 'デザイン刷新とWeb予約導入で、20代〜30代の新規顧客と予約数が<span class="text-accent-warm font-bold text-2xl">1.5倍</span>に！'
+    after: 'デザイン刷新とWeb予約導入で、20代〜30代の新規顧客と予約数が1.5倍に！',
+    image: 'https://images.unsplash.com/photo-1579684385127-6f724e8a5c3d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80'
   },
   {
     name: 'タイ式サロン「Sabai Spa」様',
-    // TODO: 実際の画像に差し替える
-    image: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=2070&auto=format&fit=crop',
     before: 'SNSのみで集客していたが、信頼性に欠けていた。',
-    after: 'プロフェッショナルなサイトで信頼度アップ。Google検索からの予約が<span class="text-accent-warm font-bold text-2xl">月30件</span>増加！'
+    after: 'プロフェッショナルなサイトで信頼度アップ。Google検索からの予約が月30件増加！',
+    image: 'https://images.unsplash.com/photo-1544161515-cfd636dc42e5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80'
   },
   {
     name: 'ベトナムカフェ「Pho & Coffee」様',
-    // TODO: 実際の画像に差し替える
-    image: 'https://images.unsplash.com/photo-1559925221-037f45575546?q=80&w=1887&auto=format&fit=crop',
     before: 'メニューが伝わりにくく、リピーターが少なかった。',
-    after: 'ビジュアル重視のデザインで料理の魅力を訴求。リピート率が<span class="text-accent-warm font-bold text-2xl">40%</span>向上！'
+    after: 'ビジュアル重視のデザインで料理の魅力を訴求。リピート率が40%向上！',
+    image: 'https://images.unsplash.com/photo-1559925393-538048a10e97?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80'
   }
 ];
 ---
 
 <section class="py-20 bg-stone-900 text-white" id="cases">
   <div class="container mx-auto px-6">
-    <h2 class="text-4xl md:text-5xl font-black text-center mb-12 font-jp">
+    <h2 class="text-4xl md:text-5xl font-black text-center mb-16 font-jp">
       私たちのデザインと成果をご覧ください
     </h2>
-    
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {cases.map((caseStudy) => (
-        <div class="bg-stone-800 rounded-xl overflow-hidden group hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/20 transition-all duration-300 transform">
-          <div class="w-full h-64 overflow-hidden">
-            <img src={caseStudy.image} alt={caseStudy.name} class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"/>
-          </div>
-          <div class="p-8">
-            <h3 class="text-2xl font-bold mb-4 text-accent">{caseStudy.name}</h3>
-            <div class="space-y-4">
-              <div>
-                <p class="text-xs font-semibold text-stone-400 mb-2 uppercase tracking-wider">Before (課題)</p>
-                <p class="text-stone-300 leading-relaxed">{caseStudy.before}</p>
-              </div>
-              <div class="border-t border-stone-700 my-4"></div>
-              <div>
-                <p class="text-xs font-semibold text-primary mb-2 uppercase tracking-wider">After (成果)</p>
-                <p class="text-stone-200 leading-relaxed" set:html={caseStudy.after} />
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        {cases.map((caseStudy) => (
+          <div class="swiper-slide">
+            <div class="bg-stone-800 rounded-xl overflow-hidden shadow-lg">
+              <img src={caseStudy.image} alt={caseStudy.name} class="w-full h-64 object-cover">
+              <div class="p-8">
+                <h3 class="text-2xl font-bold mb-4 text-accent">{caseStudy.name}</h3>
+                <p class="text-xs font-semibold text-stone-200 mb-2 uppercase tracking-wider">Before (課題)</p>
+                <p class="text-stone-200 leading-relaxed mb-4">{caseStudy.before}</p>
+                <p class="text-xs font-semibold text-stone-200 mb-2 uppercase tracking-wider">After (成果)</p>
+                <p class="text-stone-200 leading-relaxed">{caseStudy.after}</p>
               </div>
             </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
+      <div class="swiper-pagination"></div>
     </div>
-    
     <div class="text-center mt-12">
-      <a href="#contact" class="btn bg-primary text-white px-10 py-4 rounded-lg text-lg leading-none font-semibold flex items-center justify-center hover:bg-primary-light hover:-translate-y-1 hover:shadow-xl transition-all duration-300 inline-block">
+      <a href="#contact" class="btn bg-primary text-white px-10 py-4 rounded-lg text-lg font-semibold hover:bg-primary-light hover:-translate-y-1 hover:shadow-xl transition-all inline-block">
         他の制作事例も見る
       </a>
     </div>
   </div>
 </section>
+
+<script>
+  var swiper = new Swiper('.swiper-container', {
+    slidesPerView: 1,
+    spaceBetween: 30,
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    breakpoints: {
+      768: {
+        slidesPerView: 2,
+        spaceBetween: 40,
+      },
+      1024: {
+        slidesPerView: 3,
+        spaceBetween: 50,
+      },
+    }
+  });
+</script>
