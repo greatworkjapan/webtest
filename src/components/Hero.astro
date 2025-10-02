@@ -1,24 +1,81 @@
 ---
 ---
-<section class="relative h-screen flex items-center justify-center text-center text-white overflow-hidden">
-  <div class="absolute inset-0">
-    <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2073&q=80" alt="Business meeting" class="w-full h-full object-cover">
-    <div class="absolute inset-0 bg-black opacity-50"></div>
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary via-primary-light to-background-dark">
+  <!-- Background Video/Animation -->
+  <div class="absolute inset-0 z-0">
+    <div class="absolute inset-0 bg-gradient-to-br from-primary/90 via-primary-light/80 to-transparent"></div>
+    <!-- Animated geometric shapes -->
+    <div class="absolute top-20 left-20 w-32 h-32 bg-accent/20 rounded-full animate-float"></div>
+    <div class="absolute top-40 right-32 w-24 h-24 bg-accent-warm/30 rounded-lg rotate-45 animate-pulse-slow"></div>
+    <div class="absolute bottom-32 left-1/4 w-40 h-40 bg-accent-neon/10 rounded-full animate-float" style="animation-delay: 2s;"></div>
+    <div class="absolute bottom-20 right-20 w-28 h-28 bg-accent/25 rounded-lg rotate-12 animate-pulse-slow" style="animation-delay: 1s;"></div>
   </div>
-  <div class="relative z-10 p-6">
-    <h1 class="text-5xl md:text-7xl font-black mb-6 leading-tight font-jp animate-fade-in-down">
-      あなたの素晴らしいお店を、<br>日本のファンに届けます。
-    </h1>
-    <p class="text-xl md:text-2xl font-medium mb-10 animate-fade-in-up">
-      集客に強い完全オーダーメイドのWebサイトを、驚きの低価格で。
-    </p>
-    <div class="flex flex-wrap justify-center gap-4">
-      <a href="#contact" class="btn bg-accent text-primary px-10 py-4 rounded-lg text-lg font-semibold hover:bg-accent-warm hover:-translate-y-1 hover:shadow-xl transition-all">
-        まずは無料で相談する
-      </a>
-      <a href="#pricing" class="btn bg-transparent text-white border-2 border-white px-10 py-4 rounded-lg text-lg font-semibold hover:bg-white hover:text-primary transition-all">
-        料金プランを見る
-      </a>
+
+  <!-- Main Content -->
+  <div class="relative z-10 container mx-auto px-6 text-center">
+    <div class="max-w-5xl mx-auto">
+      <!-- Main Headline -->
+      <h1 class="text-6xl md:text-8xl lg:text-9xl font-display font-black mb-8 leading-tight text-white animate-fade-in-down">
+        <span class="block">あなたの素晴らしい</span>
+        <span class="block bg-gradient-to-r from-accent via-accent-warm to-accent-neon bg-clip-text text-transparent animate-glow">
+          お店を、
+        </span>
+        <span class="block">日本のファンに届けます。</span>
+      </h1>
+
+      <!-- Subtitle -->
+      <p class="text-xl md:text-3xl lg:text-4xl font-medium mb-12 text-gray-200 animate-fade-in-up max-w-4xl mx-auto leading-relaxed">
+        集客に強い完全オーダーメイドのWebサイトを、<br class="hidden md:block">
+        <span class="text-accent font-bold">驚きの低価格</span>で。
+      </p>
+
+      <!-- CTA Buttons -->
+      <div class="flex flex-col sm:flex-row justify-center gap-6 mb-16 animate-fade-in-up" style="animation-delay: 0.3s;">
+        <a href="#contact" 
+           class="group relative px-12 py-5 bg-gradient-to-r from-accent to-accent-warm text-primary font-bold text-lg rounded-2xl 
+                  hover:shadow-neon hover:scale-105 transition-all duration-300 transform
+                  before:absolute before:inset-0 before:bg-gradient-to-r before:from-accent-warm before:to-accent 
+                  before:rounded-2xl before:opacity-0 hover:before:opacity-100 before:transition-opacity before:duration-300">
+          <span class="relative z-10">まずは無料で相談する</span>
+        </a>
+        <a href="#pricing" 
+           class="group px-12 py-5 bg-transparent border-2 border-white text-white font-bold text-lg rounded-2xl 
+                  hover:bg-white hover:text-primary hover:shadow-2xl transition-all duration-300 transform hover:scale-105
+                  backdrop-blur-sm">
+          料金プランを見る
+        </a>
+      </div>
+
+      <!-- Trust Indicators -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto animate-fade-in-up" style="animation-delay: 0.6s;">
+        <div class="text-center">
+          <div class="text-3xl md:text-4xl font-black text-accent mb-2">500+</div>
+          <div class="text-sm md:text-base text-gray-300">制作実績</div>
+        </div>
+        <div class="text-center">
+          <div class="text-3xl md:text-4xl font-black text-accent-warm mb-2">98%</div>
+          <div class="text-sm md:text-base text-gray-300">満足度</div>
+        </div>
+        <div class="text-center">
+          <div class="text-3xl md:text-4xl font-black text-accent-neon mb-2">24h</div>
+          <div class="text-sm md:text-base text-gray-300">サポート</div>
+        </div>
+        <div class="text-center">
+          <div class="text-3xl md:text-4xl font-black text-accent mb-2">30日</div>
+          <div class="text-sm md:text-base text-gray-300">返金保証</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll Indicator -->
+  <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+    <div class="w-6 h-10 border-2 border-white rounded-full flex justify-center">
+      <div class="w-1 h-3 bg-white rounded-full mt-2 animate-pulse"></div>
     </div>
   </div>
 </section>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+</style>
