@@ -16,7 +16,8 @@ const problems = [
     
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
       {problems.map((problem) => (
-        <div class="bg-stone-50 p-8 rounded-xl border-2 border-stone-200 hover:border-accent hover:-translate-y-1 hover:shadow-lg transition-all">
+        <div class="bg-stone-50 p-8 rounded-xl border-2 border-stone-200 hover:border-primary hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 transform">
+          {/* TODO: 絵文字をカスタムSVGアイコンに置き換える */}
           <div class="text-5xl mb-4">{problem.icon}</div>
           <h3 class="text-xl font-bold mb-3 text-stone-900">{problem.title}</h3>
           <p class="text-stone-700 leading-relaxed">{problem.description}</p>
